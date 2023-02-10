@@ -10,7 +10,7 @@ import { db } from "../firebasehelper";
 
 type Props = { id: string };
 
-export const ChatRow = ({ id }: Props) => {
+function ChatRow({ id }: Props) {
   const pathname = usePathname();
   const router = useRouter();
   const { data: session } = useSession();
@@ -41,4 +41,6 @@ export const ChatRow = ({ id }: Props) => {
       />
     </Link>
   );
-};
+}
+
+export default ChatRow;

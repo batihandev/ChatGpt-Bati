@@ -4,11 +4,11 @@ import NewChat from "./NewChat";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { collection, orderBy, query } from "firebase/firestore";
 import { db } from "../firebasehelper";
-import { ChatRow } from "./ChatRow";
-import { ModelSelection } from "./ModelSelection";
+import ChatRow from "./ChatRow";
+import ModelSelection from "./ModelSelection";
 type Props = {};
 
-const SideBar = (props: Props) => {
+function SideBar(props: Props) {
   const { data: session } = useSession();
   const [chats, loading] = useCollection(
     session &&
@@ -49,6 +49,6 @@ const SideBar = (props: Props) => {
       )}
     </div>
   );
-};
+}
 
 export default SideBar;

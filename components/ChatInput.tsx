@@ -5,13 +5,13 @@ import { useSession } from "next-auth/react";
 import { FormEvent, useState } from "react";
 import toast from "react-hot-toast";
 import { db } from "../firebasehelper";
-import { ModelSelection } from "./ModelSelection";
+import ModelSelection from "./ModelSelection";
 import useSWR from "swr";
 
 type Props = {
   chatId: string;
 };
-export const ChatInput = ({ chatId }: Props) => {
+function ChatInput({ chatId }: Props) {
   const [prompt, setPrompt] = useState("");
   const { data: session } = useSession();
 
@@ -92,4 +92,6 @@ export const ChatInput = ({ chatId }: Props) => {
       </div>
     </div>
   );
-};
+}
+
+export default ChatInput;

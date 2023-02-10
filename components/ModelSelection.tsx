@@ -4,7 +4,7 @@ import Select from "react-select";
 type Props = {};
 
 const fetchModels = () => fetch("/api/getEngines").then((res) => res.json());
-export const ModelSelection = (props: Props) => {
+function ModelSelection(props: Props) {
   const { data: models, isLoading } = useSWR("models", fetchModels);
   const { data: model, mutate: setModel } = useSWR("model", {
     fallbackData: "text-davinci-003",
@@ -26,4 +26,6 @@ export const ModelSelection = (props: Props) => {
       />
     </div>
   );
-};
+}
+
+export default ModelSelection;

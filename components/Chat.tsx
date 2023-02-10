@@ -3,14 +3,14 @@ import { collection, orderBy, query } from "firebase/firestore";
 import { useSession } from "next-auth/react";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { db } from "../firebasehelper";
-import { Message } from "./Message";
-import { ScrollIntoView } from "./ScrollIntoView";
+import Message from "./Message";
+import ScrollIntoView from "./ScrollIntoView";
 
 type Props = {
   chatId: string;
 };
 
-export const Chat = ({ chatId }: Props) => {
+function Chat({ chatId }: Props) {
   const { data: session } = useSession();
 
   const [messages] = useCollection(
@@ -46,4 +46,6 @@ export const Chat = ({ chatId }: Props) => {
       ))}
     </div>
   );
-};
+}
+
+export default Chat;

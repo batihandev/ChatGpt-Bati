@@ -4,8 +4,7 @@ import { DocumentData } from "firebase/firestore";
 type Props = {
   message: DocumentData;
 };
-
-export const Message = ({ message }: Props) => {
+function Message({ message }: Props) {
   const isChatGPT = message.user.name === "ChatGPT";
   return (
     <div className={`py-5 text-white ${isChatGPT && "bg-[#434654]"}`}>
@@ -15,4 +14,6 @@ export const Message = ({ message }: Props) => {
       </div>
     </div>
   );
-};
+}
+
+export default Message;

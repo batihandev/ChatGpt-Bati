@@ -3,10 +3,12 @@ import { Toaster } from "react-hot-toast";
 
 type Props = {};
 
-export const ClientProvider = (props: Props) => {
+function ClientProvider(props: Props) {
   return (
     <>
       <Toaster position="top-right"></Toaster>
     </>
   );
-};
+}
+
+export default ClientProvider;

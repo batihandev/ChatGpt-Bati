@@ -7,7 +7,7 @@ type Props = {};
 function trySignIn() {
   signIn("google").catch((e) => console.log(e));
 }
-const Login = ({}: Props) => {
+function Login({}: Props) {
   return (
     <div className="flex h-screen flex-col items-center justify-center bg-[#11A37F] text-center">
       <Image src={chatgptlogo} alt="Logo" width={300} height={300} />
@@ -19,6 +19,6 @@ const Login = ({}: Props) => {
       </button>
     </div>
   );
-};
+}
 
 export default Login;

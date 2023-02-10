@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { db } from "../firebasehelper";
 
 type Props = {};
-const NewChat = (props: Props) => {
+function NewChat(props: Props) {
   const router = useRouter();
   const { data: session } = useSession();
   const createNewChat = async () => {
@@ -25,6 +25,6 @@ const NewChat = (props: Props) => {
       <p>New Chat</p>
     </div>
   );
-};
+}
 
 export default NewChat;
