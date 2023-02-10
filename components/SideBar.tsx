@@ -1,6 +1,6 @@
 "use client";
 import { useSession, signOut } from "next-auth/react";
-import { NewChat } from "./NewChat";
+import NewChat from "./NewChat";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { collection, orderBy, query } from "firebase/firestore";
 import { db } from "../firebasehelper";
@@ -8,7 +8,7 @@ import { ChatRow } from "./ChatRow";
 import { ModelSelection } from "./ModelSelection";
 type Props = {};
 
-export const SideBar = (props: Props) => {
+const SideBar = (props: Props) => {
   const { data: session } = useSession();
   const [chats, loading, error] = useCollection(
     session &&
@@ -50,3 +50,5 @@ export const SideBar = (props: Props) => {
     </div>
   );
 };
+
+export default SideBar;
