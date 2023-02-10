@@ -8,7 +8,6 @@ interface NextAuthUserWithStringId extends NextAuthUser {
 }
 
 export const authOptions = {
-  // Configure one or more authentication providers
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_ID!,
@@ -21,8 +20,14 @@ export const authOptions = {
           image: profile.picture,
         } as NextAuthUserWithStringId;
       },
+      authorization: {
+        params: {
+          prompt: "consent",
+          access_type: "offline",
+          response_type: "code",
+        },
+      },
     }),
-    // ...add more providers here
   ],
 };
 export default NextAuth(authOptions);
