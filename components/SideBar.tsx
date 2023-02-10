@@ -6,6 +6,7 @@ import { useCollection } from "react-firebase-hooks/firestore";
 import { collection, orderBy, query } from "firebase/firestore";
 import { db } from "../firebasehelper";
 import { ChatRow } from "./ChatRow";
+import { ModelSelection } from "./ModelSelection";
 type Props = {};
 
 export const SideBar = (props: Props) => {
@@ -19,16 +20,24 @@ export const SideBar = (props: Props) => {
   );
 
   return (
-    <div className="p-2 flex flex-col h-screen">
+    <div className="flex h-screen flex-col p-2">
       <div className="flex-1">
         <div>
-          {/* newchat */}
           <NewChat />
-          <div>{/* ModelSelection */}</div>
-          {/* Map through the chartows */}
-          {chats?.docs.map((chat) => (
-            <ChatRow key={chat.id} id={chat.id} />
-          ))}
+          <div className="hidden sm:inline">
+            <ModelSelection />
+          </div>
+
+          <div className="my-2 flex flex-col space-y-2">
+            {loading && (
+              <div className="animate-pulse text-center text-white">
+                <p>Loading Chats...</p>
+              </div>
+            )}
+            {chats?.docs.map((chat) => (
+              <ChatRow key={chat.id} id={chat.id} />
+            ))}
+          </div>
         </div>
       </div>
       {session && (
@@ -36,7 +45,7 @@ export const SideBar = (props: Props) => {
           onClick={() => signOut()}
           src={session.user?.image!}
           alt="Profile pic"
-          className="h-12 w-12 rounded-full cursor-pointer mx-auto mb-2 hover:opacity-50"
+          className="mx-auto mb-2 h-12 w-12 cursor-pointer rounded-full hover:opacity-50"
         />
       )}
     </div>
