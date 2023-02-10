@@ -10,7 +10,7 @@ type Props = {};
 
 const SideBar = (props: Props) => {
   const { data: session } = useSession();
-  const [chats, loading, error] = useCollection(
+  const [chats, loading] = useCollection(
     session &&
       query(
         collection(db, "users", session.user?.email!, "chats"),

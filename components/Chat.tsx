@@ -38,11 +38,11 @@ export const Chat = ({ chatId }: Props) => {
         </>
       )}
       {messages?.docs.map((message, index) => (
-        <>
+        <div key={message.id + 2}>
           <Message key={message.id} message={message.data()} />
 
           <ScrollIntoView key={index + 1} />
-        </>
+        </div>
       ))}
     </div>
   );
