@@ -1,4 +1,3 @@
-import React from "react";
 import {
   BoltIcon,
   ExclamationTriangleIcon,
@@ -7,11 +6,11 @@ import {
 
 const HomePage = () => {
   return (
-    <div className="text-white flex flex-col items-center justify-center h-screen px-2">
-      <h1 className="text-5xl font-bold mb-20">ChatGPT </h1>
+    <div className="flex h-screen flex-col items-center justify-center px-2 text-white">
+      <h1 className="mb-20 text-5xl font-bold">ChatGPT </h1>
       <div className=" flex space-x-2 text-center">
         <div>
-          <div className="flex flex-col items-center justify-center mb-5">
+          <div className="mb-5 flex flex-col items-center justify-center">
             <SunIcon className="h-8 w-8 " />
             <h2>Examples</h2>
           </div>
@@ -25,7 +24,7 @@ const HomePage = () => {
         </div>
 
         <div>
-          <div className="flex flex-col items-center justify-center mb-5">
+          <div className="mb-5 flex flex-col items-center justify-center">
             <BoltIcon className="h-8 w-8 " />
             <h2>Capabilities</h2>
           </div>
@@ -41,7 +40,7 @@ const HomePage = () => {
         </div>
 
         <div>
-          <div className="flex flex-col items-center justify-center mb-5">
+          <div className="mb-5 flex flex-col items-center justify-center">
             <ExclamationTriangleIcon className="h-8 w-8 " />
             <h2>Limitations</h2>
           </div>

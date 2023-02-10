@@ -1,6 +1,5 @@
 "use client";
 import { useSession, signOut } from "next-auth/react";
-import React from "react";
 import { NewChat } from "./NewChat";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { collection, orderBy, query } from "firebase/firestore";
