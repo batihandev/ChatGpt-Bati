@@ -4,6 +4,7 @@ import { useSession } from "next-auth/react";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { db } from "../firebasehelper";
 import { Message } from "./Message";
+import { ScrollIntoView } from "./ScrollIntoView";
 
 type Props = {
   chatId: string;
@@ -26,6 +27,7 @@ export const Chat = ({ chatId }: Props) => {
         orderBy("createdAt", "asc")
       )
   );
+
   return (
     <div className="flex-1 overflow-y-auto overflow-x-hidden">
       {messages?.empty && (
@@ -35,8 +37,12 @@ export const Chat = ({ chatId }: Props) => {
           </p>
         </>
       )}
-      {messages?.docs.map((message) => (
-        <Message key={message.id} message={message.data()} />
+      {messages?.docs.map((message, index) => (
+        <>
+          <Message key={message.id} message={message.data()} />
+
+          <ScrollIntoView key={index + 1} />
+        </>
       ))}
     </div>
   );
