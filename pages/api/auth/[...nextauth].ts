@@ -20,13 +20,8 @@ export const authOptions = {
           image: profile.picture,
         } as NextAuthUserWithStringId;
       },
-      authorization: {
-        params: {
-          prompt: "consent",
-          response_type: "code",
-        },
-      },
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET,
 };
 export default NextAuth(authOptions);
