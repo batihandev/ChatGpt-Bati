@@ -14,7 +14,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  const { prompt, chatId, model, session } = req.body;
+  const { prompt, chatId, model, session, chatGpt, messages } = req.body;
   if (!prompt) {
     res.status(400).json({ answer: "Please provide a prompt!" });
     return;
@@ -23,8 +23,8 @@ export default async function handler(
     res.status(400).json({ answer: "Please provide a valid chat ID!" });
     return;
   }
-  const response = await query(prompt, chatId, model);
-
+  const response = await query(prompt, chatId, model, chatGpt, messages);
+  console.log(response);
   const message: Message = {
     text: response || "ChatGPT was unable to find an answer for that!",
     createdAt: admin.firestore.Timestamp.now(),
