@@ -11,7 +11,7 @@ function ModelSelection(props: Props) {
   });
   return (
     <div>
-      <Select
+      {/* <Select
         className="mt-2"
         defaultValue={model}
         isSearchable
@@ -23,7 +23,7 @@ function ModelSelection(props: Props) {
         placeholder={model}
         options={models?.modelOptions}
         onChange={(e) => setModel(e.value)}
-      />
+      /> */}
     </div>
   );
 }
